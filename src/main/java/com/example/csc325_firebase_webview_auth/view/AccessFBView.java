@@ -17,23 +17,62 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import javax.swing.text.html.ImageView;
 
 public class AccessFBView {
 
 
-     @FXML
+    @FXML
     private TextField nameField;
     @FXML
     private TextField majorField;
     @FXML
     private TextField ageField;
+
+
+
+    //menubar implement
+    @FXML
+    private MenuItem registerFile;
+    @FXML
+    private MenuItem closeFile;
+
+    @FXML
+    private MenuItem deleteEdit;
+
+    @FXML
+    private MenuItem aboutHelp;
+
+
+    //tableview implement
+    @FXML
+    private TableView<Person> infoTable;
+    @FXML
+    private TableColumn<Person, String> nameCol;
+    @FXML
+    private TableColumn<Person, String> majorCol;
+    @FXML
+    private TableColumn<Person, String> ageCol;
+
+
+    //profile button
+    @FXML
+    private ImageView profileImage;
+
+    @FXML
+    private Button uploadImage;
+
+
+
     @FXML
     private Button writeButton;
     @FXML
@@ -53,7 +92,11 @@ public class AccessFBView {
         nameField.textProperty().bindBidirectional(accessDataViewModel.userNameProperty());
         majorField.textProperty().bindBidirectional(accessDataViewModel.userMajorProperty());
         writeButton.disableProperty().bind(accessDataViewModel.isWritePossibleProperty().not());
+
+
     }
+
+
 
     @FXML
     private void addRecord(ActionEvent event) {
@@ -90,7 +133,6 @@ public class AccessFBView {
         public boolean readFirebase()
          {
              key = false;
-
         //asynchronously retrieve all documents
         ApiFuture<QuerySnapshot> future =  App.fstore.collection("References").get();
         // future.get() blocks on response
@@ -101,16 +143,31 @@ public class AccessFBView {
             if(documents.size()>0)
             {
                 System.out.println("Outing....");
+
                 for (QueryDocumentSnapshot document : documents)
                 {
                     outputField.setText(outputField.getText()+ document.getData().get("Name")+ " , Major: "+
                             document.getData().get("Major")+ " , Age: "+
                             document.getData().get("Age")+ " \n ");
                     System.out.println(document.getId() + " => " + document.getData().get("Name"));
+
+
                     person  = new Person(String.valueOf(document.getData().get("Name")),
                             document.getData().get("Major").toString(),
                             Integer.parseInt(document.getData().get("Age").toString()));
+
                     listOfUsers.add(person);
+
+                    //tableview implement
+                    infoTable.setItems(listOfUsers);
+
+                    nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+                    majorCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMajor()));
+                    ageCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getAge())));
+
+
+                    //menu delete
+                  // person.setDocumentID(document.getId());
                 }
             }
             else

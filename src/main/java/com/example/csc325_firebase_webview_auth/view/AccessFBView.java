@@ -17,14 +17,13 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.text.html.ImageView;
 
@@ -113,10 +112,57 @@ public class AccessFBView {
         registerUser();
     }
 
+    //menu
+    @FXML
+    private void closeApp() {
+        Platform.exit();
+    }
+
+    @FXML
+    private void deleteMenu(ActionEvent event){
+    deleteData();
+    }
+
+    @FXML
+    private void aboutMenu(){
+        System.out.println("CSC 325 Firebase cloud assignment.");
+    }
+
+    @FXML
+    private void uploadImage(ActionEvent event){
+        imageUpload();
+    }
+
+
      @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("/files/WebContainer.fxml");
     }
+
+
+   public void imageUpload(){
+
+
+
+   }
+
+
+    public void deleteData() {
+        Person delete = infoTable.getSelectionModel().getSelectedItem();
+
+        if(delete != null) {
+            try {
+                DocumentReference docRef = App.fstore.collection("References").document(delete.getDocumentID());
+                ApiFuture<WriteResult> result = docRef.delete();
+
+                System.out.println("Deletion finished...");
+            }
+            catch (Exception e){
+                System.err.println("Error deleting: "+e.getMessage());
+            }
+        }
+}
+
 
     public void addData() {
 
@@ -165,9 +211,7 @@ public class AccessFBView {
                     majorCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMajor()));
                     ageCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getAge())));
 
-
-                    //menu delete
-                  // person.setDocumentID(document.getId());
+                    person.setDocumentID(document.getId());
                 }
             }
             else

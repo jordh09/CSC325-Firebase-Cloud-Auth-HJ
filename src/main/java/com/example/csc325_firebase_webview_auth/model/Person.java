@@ -19,6 +19,7 @@ public class Person {
     private String name;
     private String major;
     private int age;
+    private String docID;
 
     public Person(String name, String major, int age) {
         this.name = name;
@@ -49,7 +50,13 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
-    
-    
-    
+
+
+    public String getDocumentID(){
+        return docID;
+    }
+
+    public void setDocumentID(String docID){
+        this.docID = docID;
+    }
 }

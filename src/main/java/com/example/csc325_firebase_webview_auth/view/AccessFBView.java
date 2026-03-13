@@ -10,13 +10,18 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
+//import com.google.storage.v2.Bucket;
+//import com.google.storage.v2.StorageClient;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -24,8 +29,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 
-import javax.swing.text.html.ImageView;
 
 public class AccessFBView {
 
@@ -140,10 +147,33 @@ public class AccessFBView {
     }
 
 
+
    public void imageUpload(){
+       FileChooser fileChooser = new FileChooser();
+       fileChooser.setTitle("Choose Profile Picture");
+       fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
 
+       File selectFile = fileChooser.showOpenDialog(uploadImage.getScene().getWindow());
 
+       if (selectFile != null){
+           try{
+               Image image = new Image(selectFile.toURI().toString());
+               if(profileImage != null){
+                   profileImage.setImage(image);
+               }
+               InputStream fileStream = new FileInputStream(selectFile);
 
+               //Bucket bucket = StorageClient.getInstance().bucket();
+               String imageName = "images/"+image;
+               //bucket.create(imageName, fileStream, selectFile.getName());
+
+               System.out.println("Profile Image uploaded successfully.");
+           }
+
+           catch (Exception e){
+               System.err.println("Error uploading image: "+e.getMessage());
+           }
+       }
    }
 
 

@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4ae5f67-a013-4cbc-a589-49fa29fa9b6b" name="Changes" comment="Finish menu implement, update GUI">
+    <list default="true" id="e4ae5f67-a013-4cbc-a589-49fa29fa9b6b" name="Changes" comment="Code for image upload">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/csc325_firebase_webview_auth/view/RegistrationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/csc325_firebase_webview_auth/view/SignInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/csc325_firebase_webview_auth/view/SplashScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/files/Registration.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/files/SignIn.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/files/SplashScreen.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/files/key.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/csc325_firebase_webview_auth/view/AccessFBView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/csc325_firebase_webview_auth/view/AccessFBView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/csc325_firebase_webview_auth/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/csc325_firebase_webview_auth/view/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/files/AccessFBView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/files/AccessFBView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/csc325_firebase_webview_auth/view/AccessFBView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/csc325_firebase_webview_auth/view/AccessFBView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/csc325_firebase_webview_auth/view/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/csc325_firebase_webview_auth/view/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/files/AccessFBView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/files/AccessFBView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +48,7 @@
   }
 }]]></component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -61,7 +67,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/10mys/Downloads/CSC325_Firebase_webview_Auth_StarterCode/src/main/resources/files",
+    "last_opened_file_path": "C:/Users/10mys/Downloads/CSC325_Firebase_webview_Auth_StarterCode/src/main/java/com/example/csc325_firebase_webview_auth/view",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,6 +82,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\10mys\Downloads\CSC325_Firebase_webview_Auth_StarterCode\src\main\java\com\example\csc325_firebase_webview_auth\view" />
       <recent name="C:\Users\10mys\Downloads\CSC325_Firebase_webview_Auth_StarterCode\src\main\resources\files" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/csc325_firebase_webview_auth" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/csc325_firebase_webview_auth/viewmodel" />
@@ -206,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773376769109</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Code for image upload">
+      <option name="closed" value="true" />
+      <created>1773445939624</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773445939624</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +236,7 @@
     <MESSAGE value="GUI update" />
     <MESSAGE value="TableView output implement done" />
     <MESSAGE value="Finish menu implement, update GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish menu implement, update GUI" />
+    <MESSAGE value="Code for image upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code for image upload" />
   </component>
 </project>

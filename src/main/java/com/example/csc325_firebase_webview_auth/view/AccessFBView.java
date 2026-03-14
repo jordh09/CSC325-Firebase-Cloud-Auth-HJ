@@ -50,6 +50,8 @@ public class AccessFBView {
     @FXML
     private MenuItem registerFile;
     @FXML
+    private MenuItem signInFile;
+    @FXML
     private MenuItem closeFile;
 
     @FXML
@@ -114,12 +116,19 @@ public class AccessFBView {
         readFirebase();
     }
 
-            @FXML
-    private void regRecord(ActionEvent event) {
-        registerUser();
-    }
 
     //menu
+    @FXML
+    private void regRecord(ActionEvent event) throws IOException {
+        registerUser();
+        App.setRoot("/files/Registration.fxml");
+    }
+
+    @FXML
+    private void signInRecord(ActionEvent event) throws IOException {
+        App.setRoot("/files/SignIn.fxml");
+    }
+
     @FXML
     private void closeApp() {
         Platform.exit();
